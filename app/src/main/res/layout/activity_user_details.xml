@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context="com.example.supreme.javadevelopersinlagosusinggithubapi_andelaintermediatetrackchallenge.Activities.UserDetailsActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/my_image_view"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:src="@drawable/github"
+        android:layout_above="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="28dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="User Name"
+        android:textColor="@color/introSliderColor_1"
+        android:textSize="25sp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/user_name"
+        android:paddingLeft="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_below="@+id/textView"
+        android:text="Supreme_optimal"
+        android:textColor="@color/introSliderColor_2"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GitHub Profile URL"
+        android:padding="5dp"
+        android:textColor="@color/introSliderColor_1"
+        android:textSize="25sp"
+        android:layout_below="@+id/user_name"
+        android:layout_alignLeft="@+id/user_name"
+        android:layout_alignStart="@+id/user_name" />
+
+    <TextView
+        android:id="@+id/user_html_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_below="@+id/textView4"
+        android:onClick="onClick"
+        android:paddingLeft="5dp"
+        android:text="http//:github.com/supremeoptimal"
+        android:textColor="@color/introSliderColor_2"
+        android:textSize="23sp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="78dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginRight="42dp"
+        android:onClick="shareContent"
+        android:src="@drawable/share" />
+</RelativeLayout>

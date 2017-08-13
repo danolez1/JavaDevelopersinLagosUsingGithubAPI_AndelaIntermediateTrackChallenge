@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">GitHub Users(Java Developers)</string>
+    <string name="no_internet_connection">No internet connection.</string>
+    <string name="no_gitHub_users">No Java Programmers found.</string>
+
+
+    <string name="settings_min_id_label">Minimum Magnitude</string>
+    <string name="settings_min_id_key" translatable="false">min_identity Number</string>
+    <string name="settings_min_id_default" translatable="false">1</string>
+
+    <!-- Strings For Order-By Preference [CHAR LIMIT=30] -->
+    <string name="settings_order_by_label">Order By</string>
+    <string name="settings_order_by_key" translatable="false">order_by</string>
+    <string name="settings_order_by_default" translatable="false">@string/settings_order_by_id_value</string>
+    <!-- Label for order-by magnitude option [CHAR LIMIT=20] -->
+    <string name="settings_order_by_id_label">Identity Number</string>
+    <string name="settings_order_by_id_value" translatable="false">identity</string>
+
+    <!-- Label for order-by most recent option [CHAR LIMIT=20] -->
+    <string name="settings_order_by_most_recent_label">Most Recent</string>
+    <string name="settings_order_by_most_recent_value" translatable="false">time</string>
+
+    <string name="settings_menu_item">Settings</string>
+    <!-- Settings Activity Title [CHAR LIMIT=NONE] -->
+    <string name="settings_title">GitHub_Users Settings</string>
+    <string name="title_activity_user_details">User Details</string>
+</resources>
