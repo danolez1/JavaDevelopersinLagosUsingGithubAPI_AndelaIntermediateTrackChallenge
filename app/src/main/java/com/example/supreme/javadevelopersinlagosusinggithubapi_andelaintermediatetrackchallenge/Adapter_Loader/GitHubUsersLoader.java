@@ -1,6 +1,4 @@
-package com.example.supreme.javadevelopersinlagosusinggithubapi_andelaintermediatetrackchallenge.Adapter_Loader;
-
-/**
+package com.example.supreme.javadevelopersinlagosusinggithubapi_andelaintermediatetrackchallenge.Adapter_Loader; /**
  * Created by supreme on 8/6/17.
  */
 
@@ -12,18 +10,16 @@ import com.example.supreme.javadevelopersinlagosusinggithubapi_andelaintermediat
 import java.util.List;
 
 public class GitHubUsersLoader extends AsyncTaskLoader<List<GitHubUsers>> {
-
-    /** Tag for log messages */
-    private static final String LOG_TAG = GitHubUsersLoader.class.getName();
-
-    /** Query URL */
+    /**
+     * Query URL
+     */
     private String mUrl;
 
     /**
      * Constructs a new {@link GitHubUsersLoader}.
      *
      * @param context of the activity
-     * @param url to load data from
+     * @param url     to load data from
      */
     public GitHubUsersLoader(Context context, String url) {
         super(context);
