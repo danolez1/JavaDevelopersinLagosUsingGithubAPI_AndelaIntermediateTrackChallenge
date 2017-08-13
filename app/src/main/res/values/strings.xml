@@ -24,4 +24,6 @@
     <!-- Settings Activity Title [CHAR LIMIT=NONE] -->
     <string name="settings_title">GitHub_Users Settings</string>
     <string name="title_activity_user_details">User Details</string>
+
+    <string name="send_to">Share Content with...</string>
 </resources>

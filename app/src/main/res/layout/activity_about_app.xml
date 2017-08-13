@@ -4,12 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="@color/github_details"
     tools:context="com.example.supreme.javadevelopersinlagosusinggithubapi_andelaintermediatetrackchallenge.Activities.AboutAppActivity">
-<ImageView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:src="@drawable/github"
-    android:layout_centerVertical="true"
-    android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="Intermediate \n Track Challenge for \n Beginner Graduates"
+        android:textSize="30sp"
+        android:id="@+id/textView7" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="An Android application \n to retrieve a list of \n Java Developers\n in Lagos using the \n Github API "
+        android:textSize="30sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp" />
+
+
+
+
+
 </RelativeLayout>

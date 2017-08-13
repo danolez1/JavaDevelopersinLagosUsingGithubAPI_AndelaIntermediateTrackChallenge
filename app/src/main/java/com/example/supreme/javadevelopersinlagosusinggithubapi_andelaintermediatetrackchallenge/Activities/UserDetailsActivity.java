@@ -54,12 +54,11 @@ public class UserDetailsActivity extends AppCompatActivity {
 
     @SuppressWarnings("deprecation")
     public void shareContent(View view) {
-        Intent share = new Intent(Intent.ACTION_SEND);
-        share.setType("text/plain");
-        share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-        share.putExtra(Intent.EXTRA_SUBJECT, getIntent().getExtras().getString("userName"));
-        share.putExtra(Intent.EXTRA_SUBJECT, getIntent().getExtras().getString("user_html_uri"));
-        startActivity(Intent.createChooser(share, "Share Content with..."));
+        Intent sendIntent = new Intent(Intent.ACTION_SEND);
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "Check out this awesome developer @\"userName\",\"user_html_uri\"");
+        sendIntent.setType("text/plain");
+        startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.send_to)));
     }
 
 }
