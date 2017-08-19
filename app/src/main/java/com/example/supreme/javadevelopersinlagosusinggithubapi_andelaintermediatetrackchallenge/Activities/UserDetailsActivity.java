@@ -1,10 +1,10 @@
 package com.example.supreme.javadevelopersinlagosusinggithubapi_andelaintermediatetrackchallenge.Activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -13,22 +13,15 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import com.example.supreme.javadevelopersinlagosusinggithubapi_andelaintermediatetrackchallenge.R;
-
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+import com.squareup.picasso.Picasso;
 
 public class UserDetailsActivity extends AppCompatActivity {
 
-
-    ImageView user_image;
+    CollapsingToolbarLayout collapsingToolbarLayout;
+    ImageView user_avatar;
     TextView userName;
     TextView user_html_url;
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,21 +30,24 @@ public class UserDetailsActivity extends AppCompatActivity {
 
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = getWindow();
-
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-
+            //set status bar color
             window.setStatusBarColor(ContextCompat.getColor(this, R.color.list_items_header));
         }
 
-
-        user_image = (ImageView) findViewById(R.id.user_image);
+        collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
+        user_avatar = (ImageView) collapsingToolbarLayout.findViewById(R.id.user_avatar);
         userName = (TextView) findViewById(R.id.user_name);
         user_html_url = (TextView) findViewById(R.id.user_html_url);
 
+
         String username = getIntent().getExtras().getString("userName");
         userName.setText(username);
+
+
+        String userImage = getIntent().getExtras().getString("userImage");
+        Picasso.with(getApplicationContext()).load(userImage).into(user_avatar);
 
 
         String user_url = getIntent().getExtras().getString("user_html_uri");

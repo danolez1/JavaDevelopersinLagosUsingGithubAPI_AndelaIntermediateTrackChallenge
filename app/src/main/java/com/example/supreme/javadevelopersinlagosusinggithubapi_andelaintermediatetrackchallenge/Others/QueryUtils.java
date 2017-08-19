@@ -155,9 +155,7 @@ public final class QueryUtils {
 
                 String url = currentGitHubUsers.getString("html_url");
 
-                Integer userId = currentGitHubUsers.getInt("id");
-
-                GitHubUsers gitHubUsers = new GitHubUsers(userImage, userName, url, userId);
+                GitHubUsers gitHubUsers = new GitHubUsers(userImage, userName, url);
 
                 gitHubUserses.add(gitHubUsers);
             }

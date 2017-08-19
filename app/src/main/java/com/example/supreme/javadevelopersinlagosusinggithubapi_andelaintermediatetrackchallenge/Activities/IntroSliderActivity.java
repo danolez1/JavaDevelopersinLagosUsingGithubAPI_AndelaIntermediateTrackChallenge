@@ -17,46 +17,24 @@ public class IntroSliderActivity extends AppIntro2 {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        {
-//            SharedPreferences sharedPreferences = this.getSharedPreferences("Supreme", 0);
-//            if (sharedPreferences.getBoolean("firstLaunch", false)) {
-//                startActivity(new Intent(this, GitHub_Users_LagosActivity.class));
-//                finish();
-//            } else {
-//                SharedPreferences.Editor editor = sharedPreferences.edit();
-//                editor.putBoolean("firstLaunch", true);
-//                editor.apply();
-//                // finish();
+        Thread introSlider = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                {
+                    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());//this.getSharedPreferences("Supreme", 0);
+                    if (sharedPreferences.getBoolean("firstLaunch", false)) {
+                        startActivity(new Intent(IntroSliderActivity.this, GitHub_Users_LagosActivity.class));
+                        finish();
+                    } else {
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putBoolean("firstLaunch", true);
+                        editor.apply();
+                        // finish();
 
-//
-//            }
-//        }
-
-    Thread introSlider = new Thread(new Runnable() {
-        @Override
-        public void run() {
-            {
-                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());//this.getSharedPreferences("Supreme", 0);
-                if (sharedPreferences.getBoolean("firstLaunch", false)) {
-                    startActivity(new Intent(IntroSliderActivity.this, GitHub_Users_LagosActivity.class));
-                    finish();
-                } else {
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putBoolean("firstLaunch", true);
-                    editor.apply();
-                    // finish();
-
+                    }
                 }
             }
-//
-//            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-//            boolean firstUse = sharedPreferences.getBoolean("use",true);
-//            if(firstUse)startActivity(new Intent(getApplicationContext(),IntroSliderActivity.class));
-//            SharedPreferences.Editor preferEdit= sharedPreferences.edit();
-//            preferEdit.putBoolean("use",false);
-//            preferEdit.apply();
-        }
-    });
+        });
         introSlider.start();
 
 
@@ -65,7 +43,7 @@ public class IntroSliderActivity extends AppIntro2 {
         //noinspection deprecation
         addSlide(AppIntro2Fragment.newInstance("GitHub", "World's leading software development platform", R.drawable.github, getResources().getColor(R.color.introSliderColor_2)));
         //noinspection deprecation
-        addSlide(AppIntro2Fragment.newInstance("Get Started", "An Android application to retrieve a list of Java Developers in Lagos using the Github API", R.drawable.slide_3, getResources().getColor(R.color.introSliderColor_3)));
+        addSlide(AppIntro2Fragment.newInstance("Get Started", "An Android application to retrieve a list of Java Developers in Lagos using the GitHub API", R.drawable.slide_3, getResources().getColor(R.color.introSliderColor_3)));
         setSlideOverAnimation();
     }
 

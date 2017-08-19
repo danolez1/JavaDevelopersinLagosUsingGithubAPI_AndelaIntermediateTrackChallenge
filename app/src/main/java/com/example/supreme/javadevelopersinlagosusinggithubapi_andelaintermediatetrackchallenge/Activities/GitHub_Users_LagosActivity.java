@@ -11,7 +11,6 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.preference.PreferenceManager;
-import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -59,19 +58,15 @@ public class GitHub_Users_LagosActivity extends AppCompatActivity implements Loa
             @Override
             public void run() {
                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-                boolean firstUse = sharedPreferences.getBoolean("use",true);
-                if(firstUse)startActivity(new Intent(getApplicationContext(),IntroSliderActivity.class));
-                SharedPreferences.Editor preferEdit= sharedPreferences.edit();
-                preferEdit.putBoolean("use",false);
+                boolean firstUse = sharedPreferences.getBoolean("use", true);
+                if (firstUse)
+                    startActivity(new Intent(getApplicationContext(), IntroSliderActivity.class));
+                SharedPreferences.Editor preferEdit = sharedPreferences.edit();
+                preferEdit.putBoolean("use", false);
                 preferEdit.apply();
             }
         });
         introSlider.start();
-
-
-
-
-
 
 
         ListView gitHubListView = (ListView) findViewById(R.id.list);

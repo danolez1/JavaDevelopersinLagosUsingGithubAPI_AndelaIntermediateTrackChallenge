@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="Intermediate \n Track Challenge for \n Beginner Graduates"
+        android:text="@string/about_app_line_1"
         android:textSize="28sp"
         android:id="@+id/textView7"
         android:layout_alignParentTop="true"
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="An Android application \n to retrieve a list of \n Java Developers\n in Lagos using the \n Github API "
+        android:text="@string/about_app_line_2"
         android:textSize="28sp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />

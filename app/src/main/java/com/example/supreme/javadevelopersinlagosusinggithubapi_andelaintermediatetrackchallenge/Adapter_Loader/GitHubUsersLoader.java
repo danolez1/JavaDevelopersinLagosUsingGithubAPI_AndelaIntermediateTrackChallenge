@@ -1,6 +1,4 @@
-package com.example.supreme.javadevelopersinlagosusinggithubapi_andelaintermediatetrackchallenge.Adapter_Loader; /**
- * Created by supreme on 8/6/17.
- */
+package com.example.supreme.javadevelopersinlagosusinggithubapi_andelaintermediatetrackchallenge.Adapter_Loader;
 
 import android.content.AsyncTaskLoader;
 import android.content.Context;
@@ -41,7 +39,6 @@ public class GitHubUsersLoader extends AsyncTaskLoader<List<GitHubUsers>> {
         }
 
         // Perform the network request, parse the response, and extract a list of github users.
-        List<GitHubUsers> gitHubUsers = QueryUtils.fetchGitHubUserDetails(mUrl);
-        return gitHubUsers;
+        return QueryUtils.fetchGitHubUserDetails(mUrl);
     }
 }

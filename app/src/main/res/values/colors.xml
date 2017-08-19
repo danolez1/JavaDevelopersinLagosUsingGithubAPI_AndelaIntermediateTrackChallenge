@@ -3,9 +3,13 @@
     <color name="colorPrimary">#ff16ab8e</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#ff34485e</color>
+
+    <!--Intro Slider colors-->
     <color name="introSliderColor_1">#3260db</color>
     <color name="introSliderColor_2">#23363f</color>
     <color name="introSliderColor_3">#fd8469</color>
+
+    <!--user list colors-->
     <color name="github_details">#23363f</color>
     <color name="list_items_header">#ff16ab8e</color>
     <color name="list_items">#ff34485e</color>

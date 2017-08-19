@@ -3,9 +3,20 @@
     <string name="no_internet_connection">No internet connection.</string>
     <string name="no_gitHub_users">No Java Programmers found.</string>
     <string name="about_menu_item">About</string>
-    <!-- Settings Activity Title [CHAR LIMIT=NONE] -->
-    <string name="settings_title">GitHub_Users Settings</string>
+
+    <!--activity title-->
     <string name="title_activity_user_details">User Details</string>
+    <!--About app-->
+    <string name="about_app_line_1">Intermediate \n Track Challenge for \n Beginner Graduates</string>
+    <string name="about_app_line_2">An Android application \n to retrieve a list of \n Java Developers\n in Lagos using the \n GitHub API </string>
+
+    <!--GitHub user detail labels-->
+    <string name="user_name">User Name</string>
+    <string name="user_html_url">GitHub Profile URL</string>
+    <string name="share_info">share user Info</string>
+    <string name="user_url_demo">http//:github.com/supremeoptimal</string>
+    <string name="user_name_demo">Supreme_optimal</string>
+
 
     <string name="send_to">Share Content with…</string>
 </resources>

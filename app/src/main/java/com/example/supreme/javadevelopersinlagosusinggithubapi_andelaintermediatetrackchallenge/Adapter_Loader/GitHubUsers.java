@@ -6,17 +6,17 @@ package com.example.supreme.javadevelopersinlagosusinggithubapi_andelaintermedia
 
 public class GitHubUsers {
 
+
     private String mUserImage;
     private String mUserName;
     private String mUrl;
-    private int userId;
 
 
-    public GitHubUsers(String mUserImage, String mUserName, String mUrl, int userId) {
+    public GitHubUsers(String mUserImage, String mUserName, String mUrl) {
         this.mUserImage = mUserImage;
         this.mUserName = mUserName;
         this.mUrl = mUrl;
-        this.userId = userId;
+
     }
 
 
@@ -32,9 +32,6 @@ public class GitHubUsers {
         return mUrl;
     }
 
-    public int getUserId() {
-        return userId;
-    }
 }
 
 
