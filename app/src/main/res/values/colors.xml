@@ -13,4 +13,7 @@
     <color name="github_details">#23363f</color>
     <color name="list_items_header">#ff16ab8e</color>
     <color name="list_items">#ff34485e</color>
+
+    <!--link color-->
+    <color name="link_color">#cc7832</color>
 </resources>
