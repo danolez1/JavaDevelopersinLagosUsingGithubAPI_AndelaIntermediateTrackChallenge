@@ -11,6 +11,7 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.preference.PreferenceManager;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.supreme.javadevelopersinlagosusinggithubapi_andelaintermediatetrackchallenge.Adapter_Loader.GitHubUsers;
@@ -37,6 +39,7 @@ public class GitHub_Users_LagosActivity extends AppCompatActivity implements Loa
     private static final int GITHUB_LOADER_ID = 1;
     private GitHub_UsersAdapter mAdapter;
     private TextView mEmptyStateTextView;
+    RelativeLayout relativeLayout;
 
 
     @Override
@@ -70,6 +73,7 @@ public class GitHub_Users_LagosActivity extends AppCompatActivity implements Loa
 
 
         ListView gitHubListView = (ListView) findViewById(R.id.list);
+        relativeLayout = (RelativeLayout) findViewById(R.id.relative_layout);
 
 
         mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
@@ -95,26 +99,26 @@ public class GitHub_Users_LagosActivity extends AppCompatActivity implements Loa
             }
         });
 
-
-        ConnectivityManager connMgr = (ConnectivityManager)
-                getSystemService(Context.CONNECTIVITY_SERVICE);
-
-
-        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-
-
-        if (networkInfo != null && networkInfo.isConnected()) {
-
-            LoaderManager loaderManager = getLoaderManager();
-
-
-            loaderManager.initLoader(GITHUB_LOADER_ID, null, this);
-        } else {
-
+        if (!isNetworkAvailable()) {
             View loadingIndicator = findViewById(R.id.loading_indicator);
             loadingIndicator.setVisibility(View.GONE);
             mEmptyStateTextView.setText(R.string.no_internet_connection);
+            Snackbar snackbar = Snackbar
+                    .make(relativeLayout, getString(R.string.no_internet_connection), Snackbar.LENGTH_INDEFINITE)
+                    .setAction("RETRY", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            View loadingIndicator = findViewById(R.id.loading_indicator);
+                            loadingIndicator.setVisibility(View.VISIBLE);
+                            LoaderManager loaderManager = getLoaderManager();
+                            loaderManager.initLoader(GITHUB_LOADER_ID, null, GitHub_Users_LagosActivity.this);
+                        }
+                    });
 
+            snackbar.show();
+        } else {
+            LoaderManager loaderManager = getLoaderManager();
+            loaderManager.initLoader(GITHUB_LOADER_ID, null, this);
         }
     }
 
@@ -164,6 +168,13 @@ public class GitHub_Users_LagosActivity extends AppCompatActivity implements Loa
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
 }

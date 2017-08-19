@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">GitHub Users(Java Developers)</string>
     <string name="no_internet_connection">No internet connection.</string>
-    <string name="no_gitHub_users">No Java Programmers found.</string>
+    <string name="no_gitHub_users">Request failed. Check your internet connection</string>
     <string name="about_menu_item">About</string>
 
     <!--activity title-->
