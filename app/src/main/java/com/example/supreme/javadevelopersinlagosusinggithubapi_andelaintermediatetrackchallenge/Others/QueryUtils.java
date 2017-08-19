@@ -129,9 +129,9 @@ public final class QueryUtils {
      * Return a list of {@link GitHubUsers} objects that has been built up from
      * parsing the given JSON response.
      */
-    private static List<GitHubUsers> extractFeatureFromJson(String githubusersJSON) {
+    private static List<GitHubUsers> extractFeatureFromJson(String gitHubUsersJSON) {
         // If the JSON string is empty or null, then return early.
-        if (TextUtils.isEmpty(githubusersJSON)) {
+        if (TextUtils.isEmpty(gitHubUsersJSON)) {
             return null;
         }
 
@@ -140,7 +140,7 @@ public final class QueryUtils {
         try {
 
             // Create a JSONObject from the JSON response string
-            JSONObject baseJsonResponse = new JSONObject(githubusersJSON);
+            JSONObject baseJsonResponse = new JSONObject(gitHubUsersJSON);
 
             JSONArray gitHubUsersArray = baseJsonResponse.getJSONArray("items");
 
@@ -164,7 +164,7 @@ public final class QueryUtils {
 
         } catch (JSONException e) {
 
-            Log.e("QueryUtils", "Problem parsing the githubuserslist JSON results", e);
+            Log.e("QueryUtils", "Problem parsing the gitHubUsersList JSON results", e);
         }
 
         return gitHubUserses;

@@ -2,6 +2,7 @@ package com.example.supreme.javadevelopersinlagosusinggithubapi_andelaintermedia
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 
@@ -12,25 +13,51 @@ import com.github.paolorotolo.appintro.AppIntro2Fragment;
 
 public class IntroSliderActivity extends AppIntro2 {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        {
-            SharedPreferences sharedPreferences = this.getSharedPreferences("Supreme", 0);
-            if (sharedPreferences.getBoolean("firstLaunch", false)) {
-                startActivity(new Intent(this, GitHub_Users_LagosActivity.class));
-                finish();
-            } else {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putBoolean("firstLaunch", true);
-                editor.apply();
-                // finish();
+//        {
+//            SharedPreferences sharedPreferences = this.getSharedPreferences("Supreme", 0);
+//            if (sharedPreferences.getBoolean("firstLaunch", false)) {
+//                startActivity(new Intent(this, GitHub_Users_LagosActivity.class));
+//                finish();
+//            } else {
+//                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                editor.putBoolean("firstLaunch", true);
+//                editor.apply();
+//                // finish();
 
+//
+//            }
+//        }
 
+    Thread introSlider = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            {
+                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());//this.getSharedPreferences("Supreme", 0);
+                if (sharedPreferences.getBoolean("firstLaunch", false)) {
+                    startActivity(new Intent(IntroSliderActivity.this, GitHub_Users_LagosActivity.class));
+                    finish();
+                } else {
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putBoolean("firstLaunch", true);
+                    editor.apply();
+                    // finish();
+
+                }
             }
+//
+//            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+//            boolean firstUse = sharedPreferences.getBoolean("use",true);
+//            if(firstUse)startActivity(new Intent(getApplicationContext(),IntroSliderActivity.class));
+//            SharedPreferences.Editor preferEdit= sharedPreferences.edit();
+//            preferEdit.putBoolean("use",false);
+//            preferEdit.apply();
         }
+    });
+        introSlider.start();
 
 
         //noinspection deprecation
@@ -56,5 +83,6 @@ public class IntroSliderActivity extends AppIntro2 {
         startActivity(new Intent(getApplicationContext(), GitHub_Users_LagosActivity.class));
 
     }
+
 
 }

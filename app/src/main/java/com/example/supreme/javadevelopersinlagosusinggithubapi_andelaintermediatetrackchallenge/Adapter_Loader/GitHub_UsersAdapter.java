@@ -19,7 +19,7 @@ import java.util.List;
 
 
 /**
- * An {@link GitHubUsers} knows how to create a list item layout for each earthquake
+ * An {@link GitHubUsers} knows how to create a list item layout for each githubusers
  * in the data source (a list of {@link GitHubUsers} objects).
  * <p>
  * These list item layouts will be provided to an adapter view like ListView
@@ -31,15 +31,15 @@ public class GitHub_UsersAdapter extends ArrayAdapter<GitHubUsers> {
      * Constructs a new {@link GitHub_UsersAdapter}.
      *
      * @param context     of the app
-     * @param gitHubUsers is the list of earthquakes, which is the data source of the adapter
+     * @param gitHubUsers is the list of githubusers, which is the data source of the adapter
      */
     public GitHub_UsersAdapter(Context context, List<GitHubUsers> gitHubUsers) {
         super(context, 0, gitHubUsers);
     }
 
     /**
-     * Returns a list item view that displays information about the earthquake at the given position
-     * in the list of earthquakes.
+     * Returns a list item view that displays information about the githubusers at the given position
+     * in the list of githubusers.
      */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {

@@ -53,6 +53,27 @@ public class GitHub_Users_LagosActivity extends AppCompatActivity implements Loa
 
             window.setStatusBarColor(ContextCompat.getColor(this, R.color.list_items_header));
         }
+
+
+        Thread introSlider = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+                boolean firstUse = sharedPreferences.getBoolean("use",true);
+                if(firstUse)startActivity(new Intent(getApplicationContext(),IntroSliderActivity.class));
+                SharedPreferences.Editor preferEdit= sharedPreferences.edit();
+                preferEdit.putBoolean("use",false);
+                preferEdit.apply();
+            }
+        });
+        introSlider.start();
+
+
+
+
+
+
+
         ListView gitHubListView = (ListView) findViewById(R.id.list);
 
 
@@ -105,24 +126,8 @@ public class GitHub_Users_LagosActivity extends AppCompatActivity implements Loa
     @Override
     public Loader<List<GitHubUsers>> onCreateLoader(int i, Bundle bundle) {
 
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-
-        String minIdentity = sharedPrefs.getString(
-                getString(R.string.settings_min_id_key),
-                getString(R.string.settings_min_id_default));
-
-        String orderBy = sharedPrefs.getString(
-                getString(R.string.settings_order_by_key),
-                getString(R.string.settings_order_by_default)
-        );
-
         Uri baseUri = Uri.parse(GITHUB_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
-
-        uriBuilder.appendQueryParameter("format", "json");
-        uriBuilder.appendQueryParameter("limit", "500");
-        uriBuilder.appendQueryParameter("minid", minIdentity);
-        uriBuilder.appendQueryParameter("orderby", orderBy);
 
         return new GitHubUsersLoader(this, uriBuilder.toString());
 
@@ -158,7 +163,7 @@ public class GitHub_Users_LagosActivity extends AppCompatActivity implements Loa
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_about) {
             Intent settingsIntent = new Intent(this, AboutAppActivity.class);
             startActivity(settingsIntent);
             return true;
