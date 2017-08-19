@@ -138,7 +138,6 @@ public class GitHub_Users_LagosActivity extends AppCompatActivity implements Loa
         View loadingIndicator = findViewById(R.id.loading_indicator);
         loadingIndicator.setVisibility(View.GONE);
         mEmptyStateTextView.setText(R.string.no_gitHub_users);
-
         // Clear the adapter of previous githubusers data
         mAdapter.clear();
 
