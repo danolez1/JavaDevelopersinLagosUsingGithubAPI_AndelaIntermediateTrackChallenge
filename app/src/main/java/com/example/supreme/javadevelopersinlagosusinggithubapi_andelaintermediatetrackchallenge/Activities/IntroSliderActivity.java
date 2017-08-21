@@ -33,7 +33,7 @@ protected void onCreate(Bundle savedInstanceState) {
             if (isFirstStart) {
 
                 //  Launch app intro
-                final Intent i = new Intent(MainActivity.this, DefaultIntro.class);
+                final Intent i = new Intent(MainActivity.this,GitHub_Users_LagosActivity.class);
 
                 runOnUiThread(new Runnable() {
                   @Override public void run() {
