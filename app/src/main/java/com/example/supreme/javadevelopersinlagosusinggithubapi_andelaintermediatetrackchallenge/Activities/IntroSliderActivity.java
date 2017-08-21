@@ -13,30 +13,48 @@ import com.github.paolorotolo.appintro.AppIntro2Fragment;
 
 public class IntroSliderActivity extends AppIntro2 {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+   @Override
+protected void onCreate(Bundle savedInstanceState) {
 
-        Thread introSlider = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                {
-                    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());//this.getSharedPreferences("Supreme", 0);
-                    if (sharedPreferences.getBoolean("firstLaunch", false)) {
-                        startActivity(new Intent(IntroSliderActivity.this, GitHub_Users_LagosActivity.class));
-                        finish();
-                    } else {
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putBoolean("firstLaunch", true);
-                        editor.apply();
-                        // finish();
+    ...
 
-                    }
-                }
+    //  Declare a new thread to do a preference check
+    Thread t = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            //  Initialize SharedPreferences
+            SharedPreferences getPrefs = PreferenceManager
+                    .getDefaultSharedPreferences(getBaseContext());
+
+            //  Create a new boolean and preference and set it to true
+            boolean isFirstStart = getPrefs.getBoolean("firstStart", true);
+
+            //  If the activity has never started before...
+            if (isFirstStart) {
+
+                //  Launch app intro
+                final Intent i = new Intent(MainActivity.this, DefaultIntro.class);
+
+                runOnUiThread(new Runnable() {
+                  @Override public void run() {
+                    startActivity(i);
+                  }
+                });
+
+                //  Make a new preferences editor
+                SharedPreferences.Editor e = getPrefs.edit();
+
+                //  Edit preference to make it false because we don't want this to run again
+                e.putBoolean("firstStart", false);
+
+                //  Apply changes
+                e.apply();
             }
-        });
-        introSlider.start();
+        }
+    });
 
+    // Start the thread
+    t.start();
 
         //noinspection deprecation
         addSlide(AppIntro2Fragment.newInstance("Andela", "Helping Build World-Class Development Teams", R.drawable.andela_logo, getResources().getColor(R.color.introSliderColor_1)));
