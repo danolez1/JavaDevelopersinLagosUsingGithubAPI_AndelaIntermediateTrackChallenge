@@ -32,12 +32,9 @@ protected void onCreate(Bundle savedInstanceState) {
             //  If the activity has never started before...
             if (isFirstStart) {
 
-                //  Launch app intro
-                final Intent i = new Intent(MainActivity.this, DefaultIntro.class);
-
                 runOnUiThread(new Runnable() {
                   @Override public void run() {
-                    startActivity(i);
+                    startActivity(new Intent(IntroSliderActivity.this, MainActivity.class););
                   }
                 });
 
