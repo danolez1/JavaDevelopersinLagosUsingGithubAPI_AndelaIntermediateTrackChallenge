@@ -1,57 +1,27 @@
 package com.example.supreme.javadevelopersinlagosusinggithubapi_andelaintermediatetrackchallenge.Activities;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 
-
+import com.example.supreme.javadevelopersinlagosusinggithubapi_andelaintermediatetrackchallenge.Others.PrefManager;
 import com.example.supreme.javadevelopersinlagosusinggithubapi_andelaintermediatetrackchallenge.R;
 import com.github.paolorotolo.appintro.AppIntro2;
 import com.github.paolorotolo.appintro.AppIntro2Fragment;
 
 public class IntroSliderActivity extends AppIntro2 {
+    private PrefManager prefManager;
 
-   @Override
-protected void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-    ...
-
-    //  Declare a new thread to do a preference check
-    Thread t = new Thread(new Runnable() {
-        @Override
-        public void run() {
-            //  Initialize SharedPreferences
-            SharedPreferences getPrefs = PreferenceManager
-                    .getDefaultSharedPreferences(getBaseContext());
-
-            //  Create a new boolean and preference and set it to true
-            boolean isFirstStart = getPrefs.getBoolean("firstStart", true);
-
-            //  If the activity has never started before...
-            if (isFirstStart) {
-
-                runOnUiThread(new Runnable() {
-                  @Override public void run() {
-                    startActivity(new Intent(IntroSliderActivity.this, MainActivity.class););
-                  }
-                });
-
-                //  Make a new preferences editor
-                SharedPreferences.Editor e = getPrefs.edit();
-
-                //  Edit preference to make it false because we don't want this to run again
-                e.putBoolean("firstStart", false);
-
-                //  Apply changes
-                e.apply();
-            }
+        // Checking for first time launch
+        prefManager = new PrefManager(this);
+        if (!prefManager.isFirstTimeLaunch()) {
+            launchHomeScreen();
+            finish();
         }
-    });
-
-    // Start the thread
-    t.start();
 
         //noinspection deprecation
         addSlide(AppIntro2Fragment.newInstance("Andela", "Helping Build World-Class Development Teams", R.drawable.andela_logo, getResources().getColor(R.color.introSliderColor_1)));
@@ -67,14 +37,20 @@ protected void onCreate(Bundle savedInstanceState) {
     @Override
     public void onDonePressed() {
         super.onDonePressed();
-        startActivity(new Intent(getApplicationContext(), GitHub_Users_LagosActivity.class));
+        launchHomeScreen();
     }
 
     @Override
     public void onSkipPressed(Fragment currentFragment) {
         super.onSkipPressed(currentFragment);
-        startActivity(new Intent(getApplicationContext(), GitHub_Users_LagosActivity.class));
+        launchHomeScreen();
 
+    }
+
+    public void launchHomeScreen() {
+        prefManager.setFirstTimeLaunch(false);
+        startActivity(new Intent(IntroSliderActivity.this, GitHub_Users_LagosActivity.class));
+        finish();
     }
 
 

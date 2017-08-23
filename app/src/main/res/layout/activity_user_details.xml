@@ -1,98 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/list"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white"
-    tools:context="com.example.supreme.javadevelopersinlagosusinggithubapi_andelaintermediatetrackchallenge.Activities.UserDetailsActivity">
 
-    <android.support.design.widget.CollapsingToolbarLayout
-        android:id="@+id/toolbar_layout"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollview"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        app:contentScrim="?attr/colorPrimary"
-        app:layout_scrollFlags="scroll|exitUntilCollapsed">
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        tools:context="com.example.supreme.javadevelopersinlagosusinggithubapi_andelaintermediatetrackchallenge.Activities.UserDetailsActivity">
 
-        <RelativeLayout
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/user_avatar"
-                android:layout_width="180dp"
-                android:layout_height="180dp"
-                android:layout_marginTop="13dp"
-                android:src="@drawable/github"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
-        </RelativeLayout>
-    </android.support.design.widget.CollapsingToolbarLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:text="@string/user_name"
-        android:textColor="@color/introSliderColor_1"
-        android:textSize="20sp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="220dp" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/user_avatar"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="17dp"
+                    android:src="@drawable/github" />
+            </RelativeLayout>
+        </android.support.design.widget.CollapsingToolbarLayout>
 
-    <TextView
-        android:id="@+id/user_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView"
-        android:layout_below="@+id/textView"
-        android:paddingLeft="5dp"
-        android:text="@string/user_name_demo"
-        android:textColor="@color/introSliderColor_2"
-        android:textSize="20sp" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/toolbar_layout"
+            android:layout_marginTop="18dp"
+            android:padding="5dp"
+            android:text="@string/user_name"
+            android:textColor="@color/introSliderColor_1"
+            android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/user_name"
-        android:layout_alignStart="@+id/user_name"
-        android:layout_below="@+id/user_name"
-        android:padding="5dp"
-        android:text="@string/user_html_url"
-        android:textColor="@color/introSliderColor_1"
-        android:textSize="20sp" />
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView"
+            android:layout_alignStart="@+id/textView"
+            android:layout_below="@+id/textView"
+            android:paddingLeft="5dp"
+            android:text="@string/user_name_demo"
+            android:textColor="@color/introSliderColor_2"
+            android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/user_html_url"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_alignStart="@+id/textView4"
-        android:layout_below="@+id/textView4"
-        android:onClick="onClick"
-        android:paddingLeft="5dp"
-        android:text="@string/user_url_demo"
-        android:textColor="@color/link_color"
-        android:textSize="20sp" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/user_name"
+            android:layout_alignStart="@+id/user_name"
+            android:layout_below="@+id/user_name"
+            android:padding="5dp"
+            android:text="@string/user_html_url"
+            android:textColor="@color/introSliderColor_1"
+            android:textSize="18sp" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="50sp"
-        android:layout_height="50sp"
+        <TextView
+            android:id="@+id/user_html_url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView4"
+            android:onClick="onClick"
+            android:paddingLeft="5dp"
+            android:text="@string/user_url_demo"
+            android:textColor="@color/link_color"
+            android:textSize="16sp" />
 
-        android:onClick="shareContent"
-        android:src="@drawable/share"
-        android:contentDescription="@string/share_info"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="27dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginBottom="34dp" />
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/user_html_url"
+            android:contentDescription="@string/share_info"
+            android:onClick="shareContent"
+            android:paddingBottom="5dp"
+            android:paddingRight="5dp"
+            android:src="@drawable/share" />
+    </RelativeLayout>
+</ScrollView>

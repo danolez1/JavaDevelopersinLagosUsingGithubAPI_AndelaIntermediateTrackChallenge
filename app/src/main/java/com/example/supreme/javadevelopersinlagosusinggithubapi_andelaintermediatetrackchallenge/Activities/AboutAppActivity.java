@@ -22,7 +22,7 @@ public class AboutAppActivity extends AppCompatActivity {
 
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
-            window.setStatusBarColor(ContextCompat.getColor(this,R.color.introSliderColor_2));
+            window.setStatusBarColor(ContextCompat.getColor(this, R.color.introSliderColor_2));
         }
     }
 }

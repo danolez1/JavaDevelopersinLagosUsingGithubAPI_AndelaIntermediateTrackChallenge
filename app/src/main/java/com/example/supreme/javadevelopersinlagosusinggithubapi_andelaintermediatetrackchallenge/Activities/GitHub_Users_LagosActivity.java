@@ -5,12 +5,10 @@ import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
-import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
-import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -28,7 +26,8 @@ import android.widget.TextView;
 import com.example.supreme.javadevelopersinlagosusinggithubapi_andelaintermediatetrackchallenge.Adapter_Loader.GitHubUsers;
 import com.example.supreme.javadevelopersinlagosusinggithubapi_andelaintermediatetrackchallenge.Adapter_Loader.GitHubUsersLoader;
 import com.example.supreme.javadevelopersinlagosusinggithubapi_andelaintermediatetrackchallenge.Adapter_Loader.GitHub_UsersAdapter;
-import com.example.supreme.javadevelopersinlagosusinggithubapi_andelaintermediatetrackchallenge.R;
+import com.example.supreme.javadevelopersinlagosusinggithubapi_andelaintermediatetrackchallenge.R
+        ;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +38,6 @@ public class GitHub_Users_LagosActivity extends AppCompatActivity implements Loa
     private static final int GITHUB_LOADER_ID = 1;
     private GitHub_UsersAdapter mAdapter;
     private TextView mEmptyStateTextView;
-    RelativeLayout relativeLayout;
 
 
     @Override
@@ -56,25 +54,8 @@ public class GitHub_Users_LagosActivity extends AppCompatActivity implements Loa
             window.setStatusBarColor(ContextCompat.getColor(this, R.color.list_items_header));
         }
 
-
-        Thread introSlider = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-                boolean firstUse = sharedPreferences.getBoolean("use", true);
-                if (firstUse)
-                    startActivity(new Intent(getApplicationContext(), IntroSliderActivity.class));
-                SharedPreferences.Editor preferEdit = sharedPreferences.edit();
-                preferEdit.putBoolean("use", false);
-                preferEdit.apply();
-            }
-        });
-        introSlider.start();
-
-
         ListView gitHubListView = (ListView) findViewById(R.id.list);
-        relativeLayout = (RelativeLayout) findViewById(R.id.relative_layout);
-
+        RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.relative_layout);
 
         mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
         gitHubListView.setEmptyView(mEmptyStateTextView);
@@ -133,12 +114,12 @@ public class GitHub_Users_LagosActivity extends AppCompatActivity implements Loa
     }
 
     @Override
-    public void onLoadFinished(Loader<List<GitHubUsers>> loader, final List<GitHubUsers> gitHubUsers) {
+    public void onLoadFinished(Loader<List<GitHubUsers>> loader, List<GitHubUsers> gitHubUsers) {
         // Hide loading indicator because the data has been loaded
         View loadingIndicator = findViewById(R.id.loading_indicator);
         loadingIndicator.setVisibility(View.GONE);
         mEmptyStateTextView.setText(R.string.no_gitHub_users);
-        // Clear the adapter of previous githubusers data
+        //Clear the adapter of previous gitHubUsers data
         mAdapter.clear();
 
         if (gitHubUsers != null && !gitHubUsers.isEmpty()) {

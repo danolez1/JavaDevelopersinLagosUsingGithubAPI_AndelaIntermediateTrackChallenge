@@ -27,9 +27,9 @@
     <!-- Loading view -->
     <ProgressBar
         android:id="@+id/loading_indicator"
-        style="@style/Widget.AppCompat.ProgressBar"
+        style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Inverse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true" />
 
 </RelativeLayout>

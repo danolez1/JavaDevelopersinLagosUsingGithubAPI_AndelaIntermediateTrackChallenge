@@ -37,10 +37,14 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:+'
     compile 'com.android.support:design:25.+'
 }
+
+//libraries used
 dependencies {
+    //Library for image loader
     compile 'com.squareup.picasso:picasso:2.5.2'
+    //Library for circle image view
     compile 'de.hdodenhof:circleimageview:1.3.0'
+    //Library for introSlider
     compile 'com.github.apl-devs:appintro:v4.2.2'
-    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
 }
 
