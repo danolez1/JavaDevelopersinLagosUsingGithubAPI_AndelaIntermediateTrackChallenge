@@ -114,7 +114,7 @@ public class GitHub_Users_LagosActivity extends AppCompatActivity implements Loa
     }
 
     @Override
-    public void onLoadFinished(Loader<List<GitHubUsers>> loader, final List<GitHubUsers> gitHubUsers) {
+    public void onLoadFinished(Loader<List<GitHubUsers>> loader, List<GitHubUsers> gitHubUsers) {
         // Hide loading indicator because the data has been loaded
         View loadingIndicator = findViewById(R.id.loading_indicator);
         loadingIndicator.setVisibility(View.GONE);
