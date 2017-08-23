@@ -135,7 +135,7 @@ public final class QueryUtils {
             return null;
         }
 
-        List<GitHubUsers> gitHubUserses = new ArrayList<>();
+        List<GitHubUsers> gitHubUsers = new ArrayList<>();
 
         try {
 
@@ -155,9 +155,9 @@ public final class QueryUtils {
 
                 String url = currentGitHubUsers.getString("html_url");
 
-                GitHubUsers gitHubUsers = new GitHubUsers(userImage, userName, url);
+                GitHubUsers gitHubUsers_ = new GitHubUsers(userImage, userName, url);
 
-                gitHubUserses.add(gitHubUsers);
+                gitHubUsers.add(gitHubUsers_);
             }
 
         } catch (JSONException e) {
@@ -165,7 +165,7 @@ public final class QueryUtils {
             Log.e("QueryUtils", "Problem parsing the gitHubUsersList JSON results", e);
         }
 
-        return gitHubUserses;
+        return gitHubUsers;
 
     }
 

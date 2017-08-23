@@ -4,6 +4,7 @@ package com.example.supreme.javadevelopersinlagosusinggithubapi_andelaintermedia
  * Created by supreme on 6/24/17.
  */
 
+@SuppressWarnings("ALL")
 public class GitHubUsers {
 
 

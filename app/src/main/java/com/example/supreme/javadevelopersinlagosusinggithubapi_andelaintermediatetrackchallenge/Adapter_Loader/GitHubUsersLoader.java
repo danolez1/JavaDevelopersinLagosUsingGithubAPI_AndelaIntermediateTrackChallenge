@@ -38,7 +38,7 @@ public class GitHubUsersLoader extends AsyncTaskLoader<List<GitHubUsers>> {
             return null;
         }
 
-        // Perform the network request, parse the response, and extract a list of github users.
+        // Perform the network request, parse the response, and extract a list of gitHub users.
         return QueryUtils.fetchGitHubUserDetails(mUrl);
     }
 }
